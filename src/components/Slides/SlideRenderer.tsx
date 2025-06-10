@@ -221,10 +221,6 @@ export const SlideRenderer = ({ content, onChange }: SlideRendererProps) => {
     });
   };
 
-  const saveContent = () => {
-    console.log('saveContent: ');
-  }
-
   return (
     <div className="slide-editor">
       <h2 className="slide-title">Slide Editor</h2>
@@ -234,13 +230,6 @@ export const SlideRenderer = ({ content, onChange }: SlideRendererProps) => {
           style={{ marginBottom: "10px" }}
         >
           {!isEditing ? "View Slide" : "Edit Slide"}
-        </button>
-
-        <button
-          onClick={() => saveContent()}
-          style={{ marginBottom: "10px" }}
-        >
-          Save
         </button>
       </div>
 
