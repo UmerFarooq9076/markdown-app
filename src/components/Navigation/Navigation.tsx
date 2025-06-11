@@ -1,23 +1,23 @@
 import React from "react";
-import "./Navigation.css"; 
+import "./Navigation.css";
 
 interface Props {
-  current: number;
-  total: number;
-  onPrev: () => void;
-  onNext: () => void;
+  slides: any[];
+  handleClick: (index: number) => void;
 }
 
-export const Navigation: React.FC<Props> = ({ current, total, onPrev, onNext }) => {
+export const Navigation: React.FC<Props> = ({ slides, handleClick }) => {
   return (
     <div className="nav-container">
-      <button className="nav-button" onClick={onPrev} disabled={current === 0}>
-        Previous
-      </button>
-      <span className="nav-status">{current + 1} / {total}</span>
-      <button className="nav-button" onClick={onNext} disabled={current === total - 1}>
-        Next
-      </button>
+      {slides.map((slide, index) => (
+        <div
+          className="slide-wrap"
+          key={index}
+          onClick={() => handleClick(index)}
+        >
+          <span> {slide.content}</span>
+        </div>
+      ))}
     </div>
   );
 };

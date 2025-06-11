@@ -88,17 +88,19 @@ function App() {
   return (
     <div className="max-w-3xl mx-auto p-8">
       {!loading ? (
-        <div>
-          <SlideRenderer
-            content={slides[index].content}
-            onChange={updateSlideContent}
-          />
-          <Navigation
-            current={index}
-            total={slides.length}
-            onPrev={() => setIndex(index - 1)}
-            onNext={() => setIndex(index + 1)}
-          />
+        <div className="wrapper">
+          <div className="left-nav">
+            <Navigation
+              slides={slides}
+              handleClick={(index) => setIndex(index)}
+            />
+          </div>
+          <div className="main-content">
+            <SlideRenderer
+              content={slides[index].content}
+              onChange={updateSlideContent}
+            />
+          </div>
         </div>
       ) : (
         <div>
